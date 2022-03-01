@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: 6faa563ee
+          ref: rc/v0.101
       - name: Set tag
         run: |
           export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
@@ -45,7 +45,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 6faa563ee
+        ref: rc/v0.101
     - name: Set Env
       run: |
         export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
@@ -85,7 +85,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 6faa563ee
+        ref: rc/v0.101
     - name: Set Env
       run: |
         export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
@@ -138,7 +138,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 6faa563ee
+        ref: rc/v0.101
     - name: Set Env
       run: |
         export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
@@ -175,7 +175,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 6faa563ee
+        ref: rc/v0.101
     - name: Set Env
       run: |
         export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
@@ -220,7 +220,7 @@ jobs:
         echo "LIBCLANG_PATH=$env:USERPROFILE\scoop\apps\llvm\13.0.0\bin" >> $env:GITHUB_ENV
     - uses: actions/checkout@v2
       with:
-        ref: 6faa563ee
+        ref: rc/v0.101
     - name: Build
       run: |
         devtools/windows/make prod
