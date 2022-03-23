@@ -22,6 +22,8 @@ jobs:
       upload_url: ${{ steps.create-release.outputs.upload_url }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: rc/v0.101
       - name: Set tag
         run: |
           export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
@@ -42,6 +44,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: rc/v0.101
     - name: Set Env
       run: |
         export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
@@ -80,6 +84,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: rc/v0.101
     - name: Set Env
       run: |
         export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
@@ -131,6 +137,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: rc/v0.101
     - name: Set Env
       run: |
         export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
@@ -166,6 +174,8 @@ jobs:
     runs-on: macos-11
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: rc/v0.101
     - name: Set Env
       run: |
         export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
@@ -210,6 +220,8 @@ jobs:
         echo "C:\msys64\mingw64\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
         echo "LIBCLANG_PATH=$env:USERPROFILE\scoop\apps\llvm\current\bin" >> $env:GITHUB_ENV
     - uses: actions/checkout@v2
+      with:
+        ref: rc/v0.101
     - name: Build
       run: |
         devtools/windows/make prod
@@ -274,6 +286,8 @@ jobs:
       - package-for-centos
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: rc/v0.101
     - name: Set tag
       run: |
         export GIT_TAG_NAME=` echo ${{ github.ref }} | awk -F '/' '{print $4}' `
