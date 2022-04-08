@@ -37,6 +37,9 @@ jobs:
         env:
           JOB_ID: "sync-mainnet-${{ github.repository_owner }}-${{ github.ref_name }}-${{ steps.date.outputs.date }}-in-10h"
         run: ./ckb-sync-mainnet/script/sync-mainnet.sh run
+      - name: ckb_replay
+        if: ${{ always() }}
+        run: ./ckb-sync-mainnet/script/sync-mainnet.sh ckb_replay
       - name: Set test state when sync-mainnet success.
         if: ${{ success() }}
         run: echo "GITHUB_RUN_STATE=0" >> $GITHUB_ENV
