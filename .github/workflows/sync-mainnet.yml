@@ -38,6 +38,7 @@ jobs:
           JOB_ID: "sync-mainnet-${{ github.repository_owner }}-${{ github.ref_name }}-${{ steps.date.outputs.date }}-in-10h"
         run: ./ckb-sync-mainnet/script/sync-mainnet.sh run
       - name: ckb_replay
+        if: ${{ always() }}
         env:
           JOB_ID: "sync-mainnet-${{ github.repository_owner }}-${{ github.ref_name }}-${{ steps.date.outputs.date }}-in-10h"
         run: ./ckb-sync-mainnet/script/sync-mainnet.sh ckb_replay
